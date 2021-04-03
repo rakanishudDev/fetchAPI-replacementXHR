@@ -74,10 +74,10 @@
 			verse = verse.toLowerCase();
 			let url = verse + '.txt';
 			fetch(url).then(function(response){
-        response.text();
-      }).then(function(text){
-        pre.textContent = text;
-      })
+        response.text().then(function(text){
+          pre.textContent = text;
+        });
+      });
 		};
 		updateDisplay('Verse 1');
 		verseChoose.value = 'Verse 1';
