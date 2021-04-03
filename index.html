@@ -68,7 +68,7 @@
 			const verse = verseChoose.value;
 			updateDisplay(verse);
 		};
-
+    /*
 		function updateDisplay(verse) {
 			verse = verse.replace(' ', '');
 			verse = verse.toLowerCase();
@@ -79,9 +79,24 @@
         });
       });
 		};
+    */
+		
+
+    //experimenting//
+    function updateDisplay(verse) {
+      verse = verse.replace(' ', '');
+      verse = verse.toLowerCase();
+      let url = verse + '.txt';
+      let myFetch = fetch(url);
+      let myResponse = myFetch.then(function(response){
+        return response.text();
+      });
+      let myText = myResponse.then(function(text){
+        pre.textContent = text;
+      })
+    };
 		updateDisplay('Verse 1');
 		verseChoose.value = 'Verse 1';
-		
 
     </script>
   </body>
